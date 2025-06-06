@@ -1,25 +1,57 @@
-## CREATE .ENV file 
-### Postgress Connection
+
+## Project Setup Guide
+
+### 1. Create a `.env` File
+
+Add the following environment variables:
+
+```env
+# PostgreSQL Connection
 DATABASE_URL="postgresql://pproject:project21@localhost:5435/apecproject?schema=public"
-### The secret key is used for signing tokens, such as JWTs, and should be kept secure.
-SECRET_KEY= 1234567890
 
-## INSTALL DEPENDENDECIES
+# Secret key for signing tokens (keep this secure)
+SECRET_KEY=1234567890
+```
+
+---
+
+### 2. Install Dependencies
+
+```bash
 npm install
+```
 
-## POSTGRESSDB IMAGE
+---
+
+### 3. Start PostgreSQL Database with Docker
+
+```bash
 docker-compose up -d
+```
 
-## PRISMA MIGRATIONS
+---
 
-### INIT MIGRATION
-npx prisma migrate dev --name init
+### 4. Prisma Migrations
 
-### REGENERATE THE PRISMA CLIENT AFTER UPDATE
-npx prisma generate
+- **Initialize Migration:**
+    ```bash
+    npx prisma migrate dev --name init
+    ```
 
-###RESET  DATABASE
-npx prisma migrate reset
+- **Regenerate Prisma Client (after schema updates):**
+    ```bash
+    npx prisma generate
+    ```
 
-## RUN PROJECT in development enviroment
+- **Reset Database:**
+    ```bash
+    npx prisma migrate reset
+    ```
+
+---
+
+### 5. Run Project in Development Environment
+
+```bash
 npm run dev
+```
