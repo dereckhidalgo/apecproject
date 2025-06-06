@@ -1,5 +1,6 @@
 import express from 'express';
 import userRouter from './routes/user.route';
+import authRouter from './routes/auth.route';
 import  {authValidator} from './middlewares/authValidation';
 
 const app = express();
@@ -8,6 +9,7 @@ const mainPath = '/api/v1';
 
 app.use(express.json());
 
+app.use(`${mainPath}/auth`, authRouter);
 app.use(`${mainPath}/users`,authValidator, userRouter);
 
 app.listen(PORT, () => {

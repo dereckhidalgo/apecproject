@@ -14,12 +14,6 @@ interface AuthRequest extends Request {
 }
 
 export const authValidator = (req: AuthRequest, res: Response, next: NextFunction): void => {
-
-  //validate path if it is login or register
-  if (req.path === '/login' || req.path === '/register') {
-    next();
-    return;
-  }
     
   const authHeader = req.headers['authorization'] as string | undefined;
   const token = authHeader && authHeader.split(' ')[1]; 
