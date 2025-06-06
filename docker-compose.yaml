@@ -1,0 +1,12 @@
+services:
+  postgres-db:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: pproject
+      POSTGRES_PASSWORD: project21
+      POSTGRES_DB: apecproject
+    ports:
+      - "5435:5432"
+    restart: always
+    volumes:
+      - ./postgres:/var/lib/postgresql/data
