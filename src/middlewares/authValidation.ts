@@ -42,8 +42,7 @@ export const authValidator = (req: AuthRequest, res: Response, next: NextFunctio
     }
     
     req.user = decoded as UserPayload;
+    next();
   });
 
-  next();
-
-  }
+}
